@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+      padding: 0px 100px;
+      padding-top: 40px;
+      background-color: #f4f4f4;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: auto auto auto auto;
+      gap: 15px;
+    }
+
+    .card {
+      width: 100%;
+      height: 40vh;
+      background-color: #fff;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .card img {
+      width: 300px;
+      height: 60%;
+      border-radius: 10px;
+    }
+
+    .cardDetails {
+      display: flex;
+      padding: 10px;
+      align-items: flex-start;
+    }
+
+    .cardDetails img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid #555;
+      margin-right: 10px;
+    }
+
+    .cardDetails p {
+      margin: 0;
+      padding: 0;
+      font-size: 17px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .channelName {
+      font-size: 15px !important;
+      color: gray;
+      margin-top: 3px !important;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="cards">
+    <!-- <div class="card">
+      <img
+        src="https://i.ytimg.com/vi/yIHAwdJoAXs/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLB_mnyVJNP5rA3ytka-o9B_XWhvYw"
+        alt="">
+      <div class="cardDetails">
+        <img
+          src="https://yt3.ggpht.com/ytc/AIdro_ldPkw4H6InBkFG7ylSRuykWLE9XAeaiFhQNoYDjZy7c68=s68-c-k-c0x00ffffff-no-rj"
+          alt="">
+        <div>
+          <p>Youtube API - How to make youtube Clone | Fully working youtube clone with HTML, CSS, JS</p>
+          <p class="channelName">ModernWeb</p>
+          <p class="channelName">7K Views 2 years ago</p>
+        </div>
+      </div>
+    </div> -->
+
+    
+  </div>
+
+
+  <script>
+    let cards = document.querySelector(".cards");
+
+    let API_KEY = 'AIzaSyC1j_3cQ8hqCTlPn0uGF9e4Ef1kCNDApcE';
+    let video_http = "https://www.googleapis.com/youtube/v3/videos?";
+    let channel_http = "https://www.googleapis.com/youtube/v3/channels?";
+
+    fetch(video_http + new URLSearchParams({
+      key: API_KEY,
+      part: 'snippet',
+      chart: 'mostPopular',
+      maxResults: 50,
+      regionCode: "IN"
+    }))
+      .then(result => result.json())
+      .then(data => {
+        data.items.forEach(item => {
+          getChannelIcon(item);
+        });
+      });
+
+    function getChannelIcon(videoData) {
+      fetch(channel_http + new URLSearchParams({
+        key: API_KEY,
+        part: 'snippet',
+        id: videoData.snippet.channelId
+      }))
+        .then(res => res.json())
+        .then(channelData => {
+          videoData.channelThumbnail = channelData.items[0].snippet.thumbnails.default.url;
+          showVideo(videoData);
+        });
+    }
+
+    function showVideo(data) {
+      if (data.snippet.thumbnails && data.snippet.thumbnails.high) {
+        cards.innerHTML += `
+      <div class="card">
+        <img src="${data.snippet.thumbnails.high.url}" alt="">
+        <div class="cardDetails">
+          <img src="${data.channelThumbnail}" alt="">
+          <div>
+            <p>${data.snippet.title}</p>
+            <p class="channelName">${data.snippet.channelTitle}</p>
+            <p class="channelName">7K Views 2 years ago</p>
+          </div>
+        </div>
+      </div>
+    `;
+      } else {
+        console.error('Thumbnail data is missing for video:', data);
+      }
+    }
+  </script>
+</body>
+
+</html>
