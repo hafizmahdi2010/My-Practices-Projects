@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    body{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Roboto", sans-serif;
+      background-color: rgb(39, 39, 39);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    .string{
+      height: 280px;
+      width: 100%;
+      margin-top: 40px;
+      /* background-color: red; */
+    }
+
+    svg{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      /* background-color: red; */
+    }
+
+    </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+
+  <div class="string">
+    <svg width="1000" height="270">
+      <path d="M 10 100 Q 500 100 990 100" stroke="#fff" fill="transparent"/>
+    </svg>
+  </div>
+
+  
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    var path = `M 10 100 Q 500 100 990 100`;
+    var finalPath = `M 10 100 Q 500 100 990 100`;
+
+    var string = document.querySelector(".string");
+
+    string.addEventListener("mousemove",(e)=>{
+       console.log("Enter")
+       path = `M 10 100 Q ${e.x} ${e.y} 990 100`;
+       gsap.to("svg path",{
+        attr:{d:path},
+        duration:0.2,
+        ease:"power3.out"
+       })
+    })
+
+    string.addEventListener("mouseleave",(e)=>{
+       gsap.to("svg path",{
+        attr: {d:finalPath},
+        duration:1.5,
+        ease:"elastic.out(1,0.2)"
+       })
+    })
+    
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KonvaJS</title>
+  <script src="https://unpkg.com/konva@9.3.14/konva.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+</head>
+<body class="bg-zinc-900 flex flex-col items-center justify-center h-screen overflow-x-hidden overflow-y-hidden text-white">
+ <div class="flex items-center gap-[15px] absolute top-0 left-0 p-[10px]" style="justify-content: flex-end; width: 100%; padding-right: 100px;">
+   <button id="eraseBtn" style="display: none;"><i class="ri-eraser-fill mb-2 text-[20px] p-[5px] bg-purple-500"></i></button>
+   <button id="bgColorBtn" style="display: none;"><ion-icon class="text-[20px] mt-1 p-[5px] bg-purple-500" name="color-palette-outline"></ion-icon></button>
+   <button id="modifyTextBtn" style="display: none;"><i class="ri-text mb-2 text-[20px] p-[5px] bg-purple-500"></i></button>
+   <button id="deleteBtn" style="display: none;"><ion-icon class="text-[20px] mt-1 p-[5px] bg-purple-500" name="trash-outline"></ion-icon></button>
+   <button id="saveBtn"><i class="ri-download-line mb-2 text-[20px] p-[5px] bg-purple-500"></i></button>
+   <button id="undoBtn" >Undo</button>
+   <button id="redoBtn" >Redo</button>
+   
+  </div>
+
+  <div class="container m-[20px] bg-zinc-800 w-[98%] h-[98vh] flex">
+    <div class="left shapesCon w-[5vw] p-[10px] h-full bg-zinc-700">
+      <div class="button rect bg-gray-900 p-[10px] mb-3 cursor-pointer flex items-center justify-center"><ion-icon class="rotate-[90deg] text-[20px]" name="tablet-portrait-outline"></ion-icon></div>
+      <div class="button circle bg-gray-900 p-[10px] mb-3 cursor-pointer flex items-center justify-center"><ion-icon name="radio-button-off-outline" class="text-[20px]"></ion-icon></div>
+      <div class="button tringle bg-gray-900 p-[10px] mb-3 cursor-pointer flex items-center justify-center"><ion-icon name="triangle-outline" class="text-[20px]"></ion-icon></div>
+      <div class="button path bg-gray-900 p-[10px] mb-3 cursor-pointer flex items-center justify-center"><ion-icon name="paper-plane-outline" class="text-[20px]"></ion-icon></div>
+      <div class="button text bg-gray-900 p-[10px] mb-3 cursor-pointer flex items-center justify-center"><ion-icon name="text-outline" class="text-[20px]"></ion-icon></div>
+      <div class="button image bg-gray-900 p-[10px] mb-3 cursor-pointer flex items-center justify-center"><ion-icon name="image-outline" class="text-[20px]"></ion-icon></div>
+      <div class="button tag bg-gray-900 p-[10px] mb-3 cursor-pointer flex items-center justify-center"><ion-icon name="pricetags-outline" class="text-[20px]"></ion-icon></div>
+      <div class="button star bg-gray-900 p-[10px] mb-3 cursor-pointer flex items-center justify-center"><ion-icon name="star-outline" class="text-[20px]"></ion-icon></div>
+      <div class="button line bg-gray-900 p-[10px] mb-3 cursor-pointer flex items-center justify-center"><ion-icon name="remove-outline" class="rotate-[-40deg] text-[20px]"></ion-icon></div>
+      <div class="button draw bg-gray-900 p-[10px] mb-3 cursor-pointer flex items-center justify-center"><ion-icon name="pencil-outline" class="text-[20px]"></ion-icon></div>
+    </div>
+    <div class="prevCon w-[calc(100%-5vw)] h-full flex flex-col items-center justify-center">
+      <div id="prev" class="prev w-[80%] h-[80%] bg-white"></div>
+    </div>
+    <input type="file" id="imagePicker" accept="image/*" style="display: none;">
+    <input type="color" id="bgColorPicker" title="Change Color">
+  </div>
+
+  <script src="script.js"></script>
+  <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@latest/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://cdn.jsdelivr.net/npm/ionicons@latest/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

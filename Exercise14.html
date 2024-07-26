@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      background-color: #0f0;
+    }
+
+    #terminal {
+      background-color: #000;
+      color: #0f0;
+      width: 600px;
+      height: 300px;
+      margin: 50px auto;
+      padding: 20px;
+      font-family: monospace;
+      font-size: 16px;
+      line-height: 1.5;
+      overflow-y: scroll;
+    }
+
+    #output {
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      50% {
+        opacity: 0;
+      }
+    }
+
+    @media (min-width:924px) {
+      #terminal {
+        width: 90%;
+        background-color: #000;
+        color: #0f0;
+        height: 70vh;
+        margin: 50px auto;
+        padding: 20px;
+        font-family: monospace;
+        font-size: 31px;
+        line-height: 1.5;
+        overflow-y: scroll;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="terminal">
+    <div id="output"></div>
+  </div>
+
+
+  <script>
+    function sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    async function simulateHacking() {
+      const messages = [
+        "Initializing Hacking...",
+        "Reading Your Files...",
+        "Password Files Detected...",
+        "Sending All Passwords And Personal Files To Server...",
+        "Deleting All Important Files...",
+        "Throughing Virous",
+        "Cleaning Up...",
+        "Hacked... !"
+      ];
+
+      const output = document.getElementById("output");
+
+      for (let i = 0; i < messages.length; i++) {
+        output.innerHTML += messages[i] + "<br>";
+        await sleep(Math.floor(Math.random() * 7000) + 1000);
+      }
+    }
+
+    simulateHacking();
+  </script>
+
+</body>
+
+</html>

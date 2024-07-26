@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+  <!-- mouse follower -->
+  <link rel="stylesheet" href="https://unpkg.com/mouse-follower@1/dist/mouse-follower.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Roboto", sans-serif;
+      overflow-x: hidden;
+    }
+
+    .main {
+      width: 100vw;
+      height: 100vh;
+      background-image: url(https://images.pexels.com/photos/13807428/pexels-photo-13807428.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+      background-repeat: no-repeat;
+      background-size: 100%;
+    }
+
+    .sideLinks {
+      background-color: #ffffff6d;
+      backdrop-filter: blur(10px);
+      padding: 100px 50px;
+      right: -25vw;
+    }
+
+    .sideLinks h4 {
+      font-size: 40px;
+      margin-bottom: -10px;
+      cursor: pointer;
+      overflow: hidden;
+      font-weight: 500;
+    }
+
+    .sideLinks i {
+      position: absolute;
+      top: 5%;
+      right: 10%;
+      font-size: 20px;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #fff;
+      border-radius: 50%;
+    }
+
+    .hero {
+      width: 80vw;
+      margin: auto;
+      height: fit-content;
+      margin-top: 100px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 20px;
+      font-size: 80px;
+      color: #fff;
+      /* background-color: red; */
+      line-height: 1;
+    }
+
+    .hero h1 {
+      display: inline-block;
+      font-size: 130px;
+      overflow: hidden;
+    }
+
+    .hero h1 video {
+      width: 140px;
+      object-fit: cover;
+      /* background-color: red; */
+      height: 80px;
+      border-radius: 50px;
+    }
+
+    .mf-cursor {
+      color: #fff;
+    }
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+
+  <div class="main">
+    <div class="nav flex items-center w-screen h-[80px] px-[50px] justify-between">
+      <h2 class="text-2xl text-white">CodeWithMahdi<span style="color: aqua;">.</span></h2>
+
+      <i class="ri-menu-3-line text-2xl text-white cursor-pointer menuIcon"></i>
+
+    </div>
+
+    <div class="sideLinks h-screen w-[25vw] absolute top-0">
+      <h4>Work</h4>
+      <h4>About</h4>
+      <h4>Servises</h4>
+      <h4>Courses</h4>
+      <h4>Contuct Us</h4>
+
+      <i class="ri-close-large-line closeIcon"></i>
+    </div>
+
+    <div class="hero">
+      <h1><span>We are a digital</span><br>
+        <span class="flex items-center gap-2"><video src="https://cdn.cuberto.com/cb/home/hero/1.mp4" muted loop
+            autoplay></video> design </span> <span>and motion agency</span>
+      </h1>
+    </div>
+
+  </div>
+
+  <script src="https://unpkg.com/mouse-follower@1/dist/mouse-follower.min.js"></script>
+  <script src="https://unpkg.com/split-type"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+    integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+    integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+
+    let tl = gsap.timeline();
+
+    // sidebar animation
+
+    tl.to(".sideLinks", {
+      right: "0",
+      duration: 0.5,
+      ease: "power2.out"
+    });
+
+    tl.from(".sideLinks h4", {
+      y: "40%",
+      duration: .4,
+      stagger: .1,
+      opacity: 0,
+    });
+
+    tl.from(".sideLinks i", {
+      opacity: 0,
+      y: "-30%"
+    });
+
+    var menuIcon = document.querySelector(".menuIcon");
+    var closeIcon = document.querySelector(".closeIcon");
+
+    tl.pause();
+
+    menuIcon.addEventListener("click", () => {
+      tl.play();
+    });
+
+    closeIcon.addEventListener("click", () => {
+      tl.reverse()
+    });
+
+
+    // logo animation
+
+    gsap.from(".nav h2", {
+      opacity: 0,
+      y: "70%",
+      duration: 1,
+    })
+
+    gsap.from(".nav i", {
+      opacity: 0,
+      y: "-70%",
+      duration: 1,
+    })
+
+
+    gsap.from('.hero span', {
+      y: "40%",
+      stagger: 0.5,
+      duration: .8,
+      opacity: 0,
+    })
+
+
+    const cursor = new MouseFollower({
+      el: null,
+      container: document.body,
+      className: 'mf-cursor',
+      innerClassName: 'mf-cursor-inner',
+      textClassName: 'mf-cursor-text',
+      mediaClassName: 'mf-cursor-media',
+      mediaBoxClassName: 'mf-cursor-media-box',
+      iconSvgClassName: 'mf-svgsprite',
+      iconSvgNamePrefix: '-',
+      iconSvgSrc: '',
+      dataAttr: 'cursor',
+      hiddenState: '-hidden',
+      textState: '-text',
+      iconState: '-icon',
+      activeState: '-active',
+      mediaState: '-media',
+      stateDetection: {
+        '-pointer': 'a,button',
+        '-hidden': 'iframe'
+      },
+      visible: true,
+      visibleOnState: false,
+      speed: 1,
+      ease: 'expo.out',
+      overwrite: true,
+      skewing: 1,
+      skewingText: 2,
+      skewingIcon: 2,
+      skewingMedia: 2,
+      skewingDelta: 0.001,
+      skewingDeltaMax: 0.15,
+      stickDelta: 0.15,
+      showTimeout: 20,
+      hideOnLeave: true,
+      hideTimeout: 300,
+      hideMediaTimeout: 300
+    });
+
+
+  </script>
+
+</body>
+
+</html>

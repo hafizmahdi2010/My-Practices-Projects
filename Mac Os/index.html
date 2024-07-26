@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="icon" href="https://images.pexels.com/photos/247600/pexels-photo-247600.jpeg?cs=srgb&dl=pexels-pixabay-247600.jpg&fm=jpg">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,200;0,300;1,100;1,200&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300&family=Roboto:ital,wght@0,300;0,400;1,100;1,400&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      overflow-x: hidden;
+      overflow-y: hidden;
+      font-family: 'Roboto', sans-serif;
+      width: 100vw;
+      height: 100vh;
+      background-image: url(https://wallpaperaccess.com/full/8894441.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    /* Safari syntax */
+    :-webkit-full-screen {
+      background-image: url(https://wallpaperaccess.com/full/8894441.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    /* IE11 syntax */
+    :-ms-fullscreen {
+      background-image: url(https://wallpaperaccess.com/full/8894441.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    /* Standard syntax */
+    :fullscreen {
+      background-image: url(https://wallpaperaccess.com/full/8894441.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    /* Style the button */
+    button {
+      padding: 10px;
+      font-size: 10px;
+      position: absolute;
+    }
+
+    #close {
+      position: absolute;
+      left: 89vw;
+      display: none;
+      background-color: rgb(171, 86, 86);
+      color: #fff;
+      border: 0;
+      outline: 0;
+    }
+
+    #open {
+      position: absolute;
+      left: 89vw;
+      background-color: rgb(81, 198, 81);
+      color: #fff;
+      border: 0;
+      outline: 0;
+    }
+
+
+    .mac_os_header {
+      width: 100vw;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      background-color: rgb(247, 186, 74);
+      justify-content: space-between;
+      padding-right: 40px;
+    }
+
+    .mac_os_header img {
+      width: 17px;
+      margin-left: 30px;
+      margin-right: 20px
+    }
+
+    .mac_os_header .left {
+      width: 40%;
+      /* background-color: red; */
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+
+    .mac_os_header .right {
+      width: 35%;
+      /* background-color: green; */
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+
+    .left p {
+      margin-right: 15px;
+      text-transform: capitalize;
+      cursor: pointer;
+      padding: 5px;
+      transition: .4s;
+      border-radius: 5px;
+    }
+
+    .left p:hover {
+      background-color: rgb(247, 169, 25);
+    }
+
+    .right .bx {
+      font-size: 20px;
+      cursor: pointer;
+      margin-right: 10px;
+      padding: 5px;
+      transition: .4s;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .right .bx:hover {
+      background-color: rgb(247, 169, 25);
+    }
+
+
+    .mac_os_bottom {
+      width: 90%;
+      height: 70px;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 10px;
+      position: fixed;
+      bottom: 1vh;
+      background-color: rgba(251, 220, 163, 0.5); /* Red background color with 50% opacity */
+      left: 4vw;
+      display: flex;
+      align-items: center;
+      padding-left: 15px;
+      padding-right: 15px;
+      justify-content: center;
+    }
+    .mac_os_bottom .icon{
+      gap: 20px;
+      width: 60px;
+      margin-left: 10px;
+      margin-right: 10px;
+      cursor: pointer;
+      transition: transform .3s;
+      border-radius: 5px;
+      /* opacity:200%; */
+    }
+    .mac_os_bottom .icon:hover{
+      transform: translateY(-15%);
+    }
+    #camera-feed{
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      right: 1vw;
+      border-radius: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <button onclick="openFullscreen();" id="open">Open Mac OS</button>
+  <button onclick="closeFullscreen();" id="close">Close Mac OS</button>
+
+
+  <div class="mac_os_header">
+    <div class="left">
+      <img src="https://seeklogo.com/images/A/apple-logo-52C416BDDD-seeklogo.com.png" alt="">
+      <p style="font-weight: bold;">Safari</p>
+      <p>File</p>
+      <p>edit</p>
+      <p>view</p>
+      <p>history</p>
+      <p>bookmarks</p>
+      <p>window</p>
+      <p>help</p>
+    </div>
+    <div class="right">
+      <i class='bx bxs-battery'></i>
+      <i class='bx bx-wifi'></i>
+      <i class='bx bx-search'></i>
+      <i class='bx bxs-location-plus'></i>
+      <i class='bx bx-toggle-right'></i>
+      <i class='bx bxl-gmail'></i>
+      <i class='bx bxs-video'></i>
+      <i class='bx bxs-message'></i>
+      <i class='bx bxs-bell'></i>
+    </div>
+  </div>
+
+  <video id="camera-feed" autoplay playsinline style="display: none;"></video>
+  <div class="mac_os_bottom">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_bLUg5pUXXon_97p8o0phEcbCGU6k4lptEg&usqp=CAU" alt="" class="icon">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Mac_App_Store_logo.png" alt="" class="icon">
+    <img src="https://cdn.jim-nielsen.com/macos/128/maps-2023-05-19.png" alt="" class="icon">
+    <img src="https://cdn.jim-nielsen.com/macos/128/photos-2021-05-28.png" alt="" class="icon">
+    <img src="https://cdn0.iconfinder.com/data/icons/apple-apps/100/Apple_Mail-512.png" alt="" class="icon">
+    <img src="https://i.pinimg.com/originals/1c/18/61/1c1861046d8f837de76fa78fcad98b7a.png" alt="" class="icon">
+    <img src="https://i.pinimg.com/originals/98/14/6e/98146ec63f05240c321a82f8b35a31c0.png" alt="" class="icon">
+    <img src="https://cdn.jim-nielsen.com/macos/128/zoom-2021-05-20.png" id="toggle-camera-button" alt="" class="icon">
+    <img src="https://cdn.iconscout.com/icon/free/png-256/free-itunes-2844877-2365226.png" alt="" class="icon">
+    <img src="https://cdn4.iconfinder.com/data/icons/video-34/24/apple_tv_device-512.png" alt="" class="icon">
+    <img src="https://cdn.iconscout.com/icon/free/png-256/free-apple-settings-1-493162.png?f=webp" alt="" class="icon">
+    <img src="https://cdn.icon-icons.com/icons2/3053/PNG/512/contacts_macos_bigsur_icon_190274.png" alt="" class="icon">
+    <img src="https://static-00.iconduck.com/assets.00/apple-podcast-icon-2048x2048-rhr3m5wn.png" alt="" class="icon">
+    <img src="https://cdn.jim-nielsen.com/macos/512/pixelmator-pro-2021-03-10.png" alt="" class="icon">
+    <img src="https://cdn0.iconfinder.com/data/icons/apple-apps/100/Apple_Messages-512.png" alt="" class="icon">
+    <img src="https://cdn.jim-nielsen.com/macos/512/telegram-2021-07-12.png" alt="" class="icon">
+    <img src="https://cdn.iconscout.com/icon/free/png-256/free-apple-clock-493151.png?f=webp" alt="" class="icon">
+  </div>
+
+  <script>
+    // Using JavaScript to open the page in fullscreen mode
+    var elem = document.documentElement;
+    function openFullscreen() {
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+        document.getElementById('open').style.display = "none";
+        document.getElementById('close').style.display = "block";
+      } else if (elem.webkitRequestFullscreen) { /* Safari */
+        elem.webkitRequestFullscreen();
+        document.getElementById('open').style.display = "none";
+        document.getElementById('close').style.display = "block";
+      } else if (elem.msRequestFullscreen) { /* IE11 */
+        elem.msRequestFullscreen();
+        document.getElementById('open').style.display = "none";
+        document.getElementById('close').style.display = "block";
+      }
+    }
+
+    function closeFullscreen() {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+        document.getElementById('open').style.display = "block";
+        document.getElementById('close').style.display = "none";
+      } else if (document.webkitExitFullscreen) { /* Safari */
+        document.webkitExitFullscreen();
+        document.getElementById('open').style.display = "block";
+        document.getElementById('close').style.display = "none";
+      } else if (document.msExitFullscreen) { /* IE11 */
+        document.msExitFullscreen();
+        document.getElementById('open').style.display = "block";
+        document.getElementById('close').style.display = "none";
+      }
+    }
+
+
+    let cameraStream = null;
+
+async function toggleCamera() {
+  const cameraFeed = document.getElementById('camera-feed');
+  const button = document.getElementById('toggle-camera-button');
+
+  if (cameraStream) {
+    // Camera is open, so close it
+    const tracks = cameraStream.getTracks();
+    for (const track of tracks) {
+      track.stop();
+    }
+    cameraStream = null;
+    cameraFeed.style.display = 'none';
+    button.textContent = 'Open Camera';
+  } else {
+    // Camera is closed, so open it
+    try {
+      cameraStream = await navigator.mediaDevices.getUserMedia({ video: true });
+      cameraFeed.srcObject = cameraStream;
+      cameraFeed.style.display = 'block';
+      button.textContent = 'Close Camera';
+    } catch (error) {
+      console.error('Error accessing the camera:', error);
+    }
+  }
+}
+
+document.getElementById('toggle-camera-button').addEventListener('click', toggleCamera);
+
+  </script>
+
+</body>
+
+</html>

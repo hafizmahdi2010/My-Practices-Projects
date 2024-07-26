@@ -1,0 +1,101 @@
+[
+  {
+    "title": "What is the extension name for JavaScript?",
+    "options": [
+      { "option": "JS", "isTrue": false },
+      { "option": "js", "isTrue": true },
+      { "option": "Js", "isTrue": false },
+      { "option": "jS", "isTrue": false }
+    ]
+  },
+  {
+    "title": "What does HTML stand for?",
+    "options": [
+      { "option": "HyperText Markup Language", "isTrue": true },
+      { "option": "Hyperlink Text Markup Language", "isTrue": false },
+      { "option": "HighText Markup Language", "isTrue": false },
+      { "option": "HyperText Multiple Language", "isTrue": false }
+    ]
+  },
+  {
+    "title": "What is the purpose of CSS?",
+    "options": [
+      { "option": "To style HTML content", "isTrue": true },
+      { "option": "To create server-side logic", "isTrue": false },
+      { "option": "To handle user authentication", "isTrue": false },
+      { "option": "To manage databases", "isTrue": false }
+    ]
+  },
+  {
+    "title": "Which symbol is used for comments in JavaScript?",
+    "options": [
+      { "option": "//", "isTrue": true },
+      { "option": "#", "isTrue": false },
+      { "option": "/*", "isTrue": false },
+      { "option": "<!--", "isTrue": false }
+    ]
+  },
+  {
+    "title": "What does API stand for?",
+    "options": [
+      { "option": "Application Programming Interface", "isTrue": true },
+      { "option": "Application Program Interface", "isTrue": false },
+      { "option": "Applied Programming Interface", "isTrue": false },
+      { "option": "Advanced Programming Interface", "isTrue": false }
+    ]
+  },
+  {
+    "title": "Which method is used to add an element to the end of an array in JavaScript?",
+    "options": [
+      { "option": "push()", "isTrue": true },
+      { "option": "pop()", "isTrue": false },
+      { "option": "shift()", "isTrue": false },
+      { "option": "unshift()", "isTrue": false }
+    ]
+  },
+  {
+    "title": "What is the default value of a variable in JavaScript if it is not initialized?",
+    "options": [
+      { "option": "undefined", "isTrue": true },
+      { "option": "null", "isTrue": false },
+      { "option": "0", "isTrue": false },
+      { "option": "false", "isTrue": false }
+    ]
+  },
+  {
+    "title": "Which of the following is a JavaScript framework?",
+    "options": [
+      { "option": "React", "isTrue": true },
+      { "option": "Bootstrap", "isTrue": false },
+      { "option": "jQuery", "isTrue": false },
+      { "option": "Sass", "isTrue": false }
+    ]
+  },
+  {
+    "title": "Which method is used to remove the last element from an array in JavaScript?",
+    "options": [
+      { "option": "pop()", "isTrue": true },
+      { "option": "push()", "isTrue": false },
+      { "option": "splice()", "isTrue": false },
+      { "option": "slice()", "isTrue": false }
+    ]
+  },
+  {
+    "title": "What is the use of the 'const' keyword in JavaScript?",
+    "options": [
+      { "option": "To declare a variable that cannot be reassigned", "isTrue": true },
+      { "option": "To declare a variable that can be reassigned", "isTrue": false },
+      { "option": "To declare a variable that is globally scoped", "isTrue": false },
+      { "option": "To declare a variable with block scope", "isTrue": false }
+    ]
+  },
+  {
+    "title": "Which of the following is NOT a JavaScript data type?",
+    "options": [
+      { "option": "Integer", "isTrue": true },
+      { "option": "String", "isTrue": false },
+      { "option": "Boolean", "isTrue": false },
+      { "option": "Object", "isTrue": false }
+    ]
+  }
+]

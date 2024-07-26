@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Cube Animation</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background-color: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .cube-container {
+      perspective: 1000px;
+    }
+
+    .cube {
+      position: relative;
+      width: 350px;
+      height: 350px;
+      transform-style: preserve-3d;
+      transition: transform 0.1s;
+    }
+
+    .face {
+      position: absolute;
+      width: 350px; /* Adjusted width */
+      height: 350px; /* Adjusted height */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      color: #fff;
+      border: 1px solid #fff;
+    }
+
+    .face:nth-child(1) { transform: translateZ(175px); background-color: #333; }
+    .face:nth-child(2) { transform: rotateY(90deg) translateZ(175px); background-color: #555; }
+    .face:nth-child(3) { transform: rotateY(180deg) translateZ(175px); background-color: #777; }
+    .face:nth-child(4) { transform: rotateY(-90deg) translateZ(175px); background-color: #999; }
+    .face:nth-child(5) { transform: rotateX(90deg) translateZ(175px); background-color: #bbb; }
+    .face:nth-child(6) { transform: rotateX(-90deg) translateZ(175px); background-color: #ddd; }
+  </style>
+</head>
+<body>
+  <div class="cube-container" id="cubeContainer">
+    <div class="cube" id="cube">
+      <div class="face">1</div>
+      <div class="face">2</div>
+      <div class="face">3</div>
+      <div class="face">4</div>
+      <div class="face">5</div>
+      <div class="face">6</div>
+    </div>
+  </div>
+
+  <script>
+    const cube = document.getElementById('cube');
+    const cubeContainer = document.getElementById('cubeContainer');
+
+    cubeContainer.addEventListener('mousemove', (event) => {
+      const { clientX, clientY } = event;
+      const { left, top, width, height } = cubeContainer.getBoundingClientRect();
+      const x = (clientX - left) / width - 0.5;
+      const y = 0.5 - (clientY - top) / height;
+      const rotateX = y * 360;
+      const rotateY = x * 360;
+
+      cube.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    });
+  </script>
+</body>
+</html>

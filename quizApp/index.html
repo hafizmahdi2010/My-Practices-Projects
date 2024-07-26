@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz App - CodeWithMahdi</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .option ion-icon{
+      display: none;
+    }
+    .optionActive ion-icon{
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container flex flex-col items-center justify-center h-screen bg-[#f7f7f7]">
+    <div class="quizCon w-[30vw] min-h-[35vh] bg-[#fff] rounded-lg shadow-lg p-[20px]">
+      <h1 class="text-[#333] text-[25px] font-[600] mb-[7px]">Quiz App</h1>
+      <p class="p-[7px] border-[1px] mb-2 border-gray-300 rounded-lg ques">What is the HTML standards for ?</p>
+
+      <b>Options</b>
+
+      <div class="optionsCon">
+        <p class="option p-[7px] bg-[#f7f7f7] mt-2 cursor-pointer flex items-center justify-between">Hyper Text Markup
+          Language. <ion-icon class="text-[25px] text-green-500 optionIcon" name="checkmark-circle-outline"></ion-icon></p>
+        <p class="option p-[7px] bg-[#f7f7f7] mt-2 cursor-pointer flex items-center justify-between">Hyperlink Text
+          Markup Language <ion-icon class="text-[25px] text-red-500 optionIcon" name="close-circle-outline"></ion-icon></p>
+        <p class="option p-[7px] bg-[#f7f7f7] mt-2 cursor-pointer flex items-center justify-between">HighText Markup
+          Language <ion-icon class="text-[25px] text-red-500 optionIcon" name="close-circle-outline"></ion-icon></p>
+        <p class="option p-[7px] bg-[#f7f7f7] mt-2 cursor-pointer flex items-center justify-between">To handle user
+          authentication <ion-icon class="text-[25px] text-red-500 optionIcon" name="close-circle-outline"></ion-icon></p>
+      </div>
+
+      <button class="getQuiz p-[10px] my-3 bg-blue-500 text-white rounded-lg transition-all hover:bg-blue-600">Get a
+        random quiz</button>
+    </div>
+  </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@latest/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://cdn.jsdelivr.net/npm/ionicons@latest/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
